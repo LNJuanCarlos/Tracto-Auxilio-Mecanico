@@ -1,9 +1,9 @@
 <resources>
 
     <string name="mi_google_maps_api_key">AIzaSyDSgoNkyVMM_sK1sG9J5ovJNqgYG8xK-gI</string>
-    <string name="default_web_client_id">569685458783-b2u8errnguucfffq8gk8gq27n86gvu2o.apps.googleusercontent.com</string>
+    <string name="default_web_client_id">118721559103-uh4ch13sh4o9mffgg5ogs47r33q5kpif.apps.googleusercontent.com</string>
 
-    <string name="app_name">Trueques Peru</string>
+    <string name="app_name">Tracto Auxilio Mecánico</string>
 
     <string name="Item_Inicio">Inicio</string>
     <string name="Item_Chats">Chats</string>
@@ -162,5 +162,14 @@
     <string name="Txt_eliminar_cuenta">Eliminar cuenta</string>
     <string name="Txt_mensaje_eliminar">¿Estas seguro(a) que deseas eliminar tu cuenta?. Esta acción no se puede deshacer</string>
     <string name="Btn_eliminar_mi_cuenta">Eliminar mi cuenta</string>
+
+    <!-- New -->
+    <string name="iniciar_sesion">INICIAR SESION</string>
+    <string name="register_button">Registro</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="prompt_login">Login</string>
+    <string name="ingresa_con_tu_correo_y_contra">Ingresa con tu correo y contraseña</string>
+
 
 </resources>

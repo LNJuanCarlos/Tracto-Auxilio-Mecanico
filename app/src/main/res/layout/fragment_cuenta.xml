@@ -1,14 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
     tools:context=".Fragmentos.FragmentCuenta">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Cuenta" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/Txt_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/Txt_perfil"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/Iv_perfil"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_below="@id/Txt_perfil"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_perfil" />
+
+        <TextView
+            android:id="@+id/Txt_informacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Iv_perfil"
+            android:layout_marginTop="10dp"
+            android:text="@string/Txt_informacion"
+            android:textStyle="bold" />
+
+        <!--Nombres-->
+        <TextView
+            android:id="@+id/Txt_nombres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_informacion"
+            android:layout_marginTop="15dp"
+            android:text="@string/Txt_nombres" />
+
+        <TextView
+            android:id="@+id/Tv_nombres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_informacion"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/Tv_nombres" />
+
+        <!--Email-->
+        <TextView
+            android:id="@+id/Txt_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_nombres"
+            android:layout_marginTop="15dp"
+            android:text="@string/Txt_email" />
+
+        <TextView
+            android:id="@+id/Tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_nombres"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/Tv_email" />
+
+        <!--Fecha de nac-->
+        <TextView
+            android:id="@+id/Txt_nacimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_email"
+            android:layout_marginTop="15dp"
+            android:text="@string/Txt_nacimiento" />
+
+        <TextView
+            android:id="@+id/Tv_nacimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_email"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/Tv_nacimiento" />
+
+        <!--Miembro desde-->
+        <TextView
+            android:id="@+id/Txt_miembro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_nacimiento"
+            android:layout_marginTop="15dp"
+            android:text="@string/Txt_miembro" />
+
+        <TextView
+            android:id="@+id/Tv_miembro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_nacimiento"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/Tv_miembro" />
+
+        <!--Telefono-->
+        <TextView
+            android:id="@+id/Txt_telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_miembro"
+            android:layout_marginTop="15dp"
+            android:text="@string/Txt_telefono" />
+
+        <TextView
+            android:id="@+id/Tv_telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_miembro"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/Tv_telefono" />
+
+        <!--Estado de la cuenta-->
+        <TextView
+            android:id="@+id/Txt_estado_cuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_telefono"
+            android:layout_marginTop="15dp"
+            android:text="@string/Txt_estado_cuenta" />
+
+        <TextView
+            android:id="@+id/Tv_estado_cuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Txt_telefono"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/Tv_estado_cuenta" />
+
+        <TextView
+            android:id="@+id/TxtOpciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TxtOpciones"
+            android:layout_below="@id/Txt_estado_cuenta"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textSize="17sp"/>
+
+        <!-- Editar Perfil -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Btn_editar_perfil"
+            android:layout_width="220dp"
+            android:layout_height="@dimen/m_button_height"
+            android:layout_centerInParent="true"
+            android:text="@string/Btn_editar_perfil"
+            android:textAllCaps="true"
+            android:layout_below="@id/TxtOpciones"
+            app:icon="@drawable/iconedit"/>
+
+        <!-- Cambiar Password -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Btn_cambiar_password"
+            android:layout_width="220dp"
+            android:layout_height="@dimen/m_button_height"
+            android:layout_below="@id/Btn_editar_perfil"
+            android:layout_centerInParent="true"
+            android:text="@string/Btn_cambiar_password"
+            android:textAllCaps="true"
+            app:icon="@drawable/ic_password"/>
+
+        <!-- Verificar cuenta -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Btn_verificar_cuenta"
+            android:layout_width="220dp"
+            android:layout_height="@dimen/m_button_height"
+            android:layout_below="@id/Btn_cambiar_password"
+            android:layout_centerInParent="true"
+            android:text="@string/Btn_verificar_cuenta"
+            android:textAllCaps="true"
+            app:icon="@drawable/ic_verificar" />
+
+        <!-- Eliminar todos mis anuncios -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Btn_eliminar_anuncios"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textAllCaps="true"
+            android:text="@string/Btn_eliminar_anuncios"
+            android:layout_below="@id/Btn_verificar_cuenta"
+            app:icon="@drawable/ic_eliminar_anuncios"/>
+
+        <!-- Eliminar cuenta -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Btn_eliminar_cuenta"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textAllCaps="true"
+            android:layout_below="@id/Btn_eliminar_anuncios"
+            app:icon="@drawable/ic_eliminar_cuenta"
+            android:text="@string/Btn_eliminar_cuenta"/>
+
+        <!-- Cerrar sesion -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Btn_cerrar_sesion"
+            android:layout_width="220dp"
+            android:layout_height="@dimen/m_button_height"
+            android:layout_below="@+id/Btn_eliminar_cuenta"
+            android:layout_centerInParent="true"
+            android:text="@string/Btn_cerrar_sesion"
+            android:textAllCaps="true"
+            app:icon="@drawable/iconexit" />
+
+    </RelativeLayout>
+
+
+</ScrollView>

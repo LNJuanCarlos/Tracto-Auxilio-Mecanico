@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "720737328010",
-    "project_id": "app-trueques-ad758",
-    "storage_bucket": "app-trueques-ad758.firebasestorage.app"
+    "project_number": "562757163976",
+    "project_id": "auxilio-mecanico-tracto",
+    "storage_bucket": "auxilio-mecanico-tracto.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:720737328010:android:a0875c5d96b7edbd578673",
+        "mobilesdk_app_id": "1:562757163976:android:90c77d0ac1b9abcec9fefd",
         "android_client_info": {
           "package_name": "com.example.truequesperu"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC7EsInzELkIudRgbER_gkvzAvZzsgOGsc"
+          "current_key": "AIzaSyC_Dfe988n-pG59csdrQo8GQWvNocgHNw8"
         }
       ],
       "services": {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,129 +7,101 @@
     android:layout_height="match_parent"
     tools:context=".Opciones_Login.Login_email">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="30dp"
-        android:gravity="center">
+        android:orientation="vertical">
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Txt_login"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:text="@string/prompt_login"
+            android:fontFamily="@font/indigo_daisy"
+            android:textSize="50sp"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="25dp" />
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/login"
-            android:layout_marginTop="15dp"/>
-
-        <!-- Email -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:boxCornerRadiusTopStart="8dp"
-            app:boxCornerRadiusBottomEnd="8dp"
-            app:boxCornerRadiusTopEnd="8dp"
-            app:boxCornerRadiusBottomStart="8dp"
-            >
-
-            <EditText
-                android:id="@+id/Et_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/Et_email"
-                android:inputType="textEmailAddress"
-                />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Password -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:boxCornerRadiusTopStart="8dp"
-            app:boxCornerRadiusBottomEnd="8dp"
-            app:boxCornerRadiusTopEnd="8dp"
-            app:boxCornerRadiusBottomStart="8dp"
-            app:passwordToggleEnabled="true"
-            >
-
-            <EditText
-                android:id="@+id/Et_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/Et_password"
-                android:inputType="textPassword"
-                />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Boton Ingresar -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/Btn_Ingresar"
-            android:layout_width="180dp"
-            android:layout_height="@dimen/m_button_height"
-            android:text="@string/Btn_Ingresar"
-            android:textAllCaps="true"
-            android:layout_marginTop="15dp"
+            android:src="@drawable/tractocamiones"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="Logo"
+            android:adjustViewBounds="true"
             />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ingresa_con_tu_correo_y_contra"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/roboto_regular"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="Correo electronico">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Et_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:endIconMode="password_toggle"
+            android:hint="Contraseña">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Et_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textPassword"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <CheckBox android:id="@+id/cbRecordar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Recordar usuario y contraseña" />
+
+        <Button
+            android:id="@+id/Btn_Ingresar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Txt_no_cuenta"/>
-
-            <TextView
-                android:id="@+id/Txt_registrarme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Txt_registrarme"
-                android:textStyle="bold"
-                android:layout_marginStart="8dp"
-                />
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/iniciar_sesion" />
 
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Txt_olvide_pass"/>
-
-            <TextView
-                android:id="@+id/Tv_recuperar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:layout_marginStart="8dp"
-                android:text="@string/Tv_recuperar"
-                android:textColor="#3498D8"/>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

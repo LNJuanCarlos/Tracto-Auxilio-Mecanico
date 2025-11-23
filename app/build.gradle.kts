@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebaseStorage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -58,4 +59,8 @@ dependencies {
     //implementation(libs.kotlinx.coroutines.core)
     implementation(libs.firebaseAuth)
     implementation(libs.firebaseDatabase)
+    implementation(libs.loginGoogle)
+    implementation(libs.glide)
+    implementation(libs.ccp)
+    implementation(libs.circleImage)
 }

@@ -1,13 +1,24 @@
 package com.example.truequesperu
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.truequesperu.Opciones_Login.Login_email
 import com.example.truequesperu.databinding.ActivityOpcionesLoginBinding
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.FirebaseDatabase
 
 class OpcionesLogin : AppCompatActivity() {
 
@@ -56,16 +67,17 @@ class OpcionesLogin : AppCompatActivity() {
         }
 
         private val googleSignInARL = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()){resultado->
+            ActivityResultContracts.StartActivityForResult()){ resultado->
             if(resultado.resultCode == RESULT_OK){
                 val data  = resultado .data
                 val task = GoogleSignIn.getSignedInAccountFromIntent(data)
                 try {
                     val cuenta  = task.getResult(ApiException::class.java)
                     autenticacionGoogle(cuenta.idToken)
-                }catch (e:Exception){
-                    Toast.makeText(this,
-                        "${e.message}", Toast.LENGTH_SHORT).show()
+                    Log.d("GoogleAuth", "ID Token: ${cuenta.idToken}")
+                }catch (e:ApiException){
+                    Log.e("GoogleAuth", "Error: ${e.statusCode}", e)
+                    Toast.makeText(this, "Error Google: ${e.statusCode}", Toast.LENGTH_SHORT).show()
                 }
             }
 
