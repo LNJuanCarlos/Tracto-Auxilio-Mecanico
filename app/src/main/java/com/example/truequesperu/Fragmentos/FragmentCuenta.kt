@@ -10,9 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.example.truequesperu.Constantes
-import com.example.truequesperu.EditarPerfil
-import com.example.truequesperu.OpcionesLogin
+import com.example.truequesperu.Opciones_Login.Constantes
+import com.example.truequesperu.Opciones_Login.EditarPerfil
 import com.example.truequesperu.Opciones_Login.Login_email
 import com.example.truequesperu.R
 import com.example.truequesperu.databinding.FragmentCuentaBinding

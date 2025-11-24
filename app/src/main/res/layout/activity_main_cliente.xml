@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activitys.MainClienteActivity">
 
     <RelativeLayout
         android:id="@+id/ToobarRL"
@@ -53,16 +53,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/mi_menu"
+        app:menu="@menu/menu_cliente"
         app:labelVisibilityMode="labeled"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/FAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
+        android:layout_above="@id/BottomNV"
+        android:layout_marginBottom="20dp"
+        android:translationY="50dp"
         android:src="@drawable/iconadd"
         app:tint="@android:color/white"
         android:backgroundTint="@color/green"/>

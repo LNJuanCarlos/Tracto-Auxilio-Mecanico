@@ -7,8 +7,8 @@
 
     <string name="Item_Inicio">Inicio</string>
     <string name="Item_Chats">Chats</string>
-    <string name="Item_Trueques">Trueques</string>
-    <string name="Item_Mis_Anuncios">Anuncios</string>
+    <string name="Item_Alerta">Alerta</string>
+    <string name="Item_Mis_Alertas">Mis Alertas</string>
     <string name="Item_Cuenta">Cuenta</string>
     <string name="TituloRL">Titulo</string>
     <!-- TODO: Remove or change this placeholder text -->

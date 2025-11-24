@@ -1,4 +1,4 @@
-package com.example.truequesperu
+package com.example.truequesperu.Opciones_Login
 
 import android.app.Activity
 import android.app.DatePickerDialog
@@ -15,9 +15,8 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.example.truequesperu.R
 import com.example.truequesperu.databinding.ActivityEditarPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot

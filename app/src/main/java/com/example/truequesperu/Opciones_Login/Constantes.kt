@@ -1,4 +1,4 @@
-package com.example.truequesperu
+package com.example.truequesperu.Opciones_Login
 
 import android.content.Context
 import android.content.Intent
@@ -84,7 +84,7 @@ object Constantes {
 
     fun agregarAnuncioFav(context : Context, idAnuncio : String){
         val firebaseAuth = FirebaseAuth.getInstance()
-        val tiempo = Constantes.obtenerTiempoDis()
+        val tiempo = obtenerTiempoDis()
 
         val hashMap = HashMap<String,Any>()
         hashMap["idAnuncio"] = idAnuncio

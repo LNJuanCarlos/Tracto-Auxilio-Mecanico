@@ -11,13 +11,13 @@
         android:icon="@drawable/ic_chats"
         />
     <item
-        android:id="@+id/Item_Trueques"
-        android:title="@string/Item_Trueques"
+        android:id="@+id/Item_Alerta"
+        android:title="@string/Item_Alerta"
         android:enabled="false"
         />
     <item
-        android:id="@+id/Item_Mis_Anuncios"
-        android:title="@string/Item_Mis_Anuncios"
+        android:id="@+id/Item_Mis_Alertas"
+        android:title="@string/Item_Mis_Alertas"
         android:icon="@drawable/ic_mis_anuncios"
         />
     <item

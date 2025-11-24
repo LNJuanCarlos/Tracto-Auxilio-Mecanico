@@ -8,9 +8,11 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.truequesperu.MainActivity
+import com.example.truequesperu.Activitys.MainClienteActivity
+import com.example.truequesperu.Activitys.MainTecnicoActivity
 import com.example.truequesperu.databinding.ActivityLoginEmailBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Login_email : AppCompatActivity() {
 
@@ -80,35 +82,61 @@ class Login_email : AppCompatActivity() {
             }
         }
 
-        private fun loginUsuario() {
-            progressDialog.setMessage("Ingresando")
-            progressDialog.show()
+    private fun loginUsuario() {
+        progressDialog.setMessage("Ingresando")
+        progressDialog.show()
 
-            if (binding.cbRecordar.isChecked) {
-                val editor: SharedPreferences.Editor = sharedPref.edit()
-                editor.putString("username", email)
-                editor.putString("password", password)
-                editor.apply()
-            }
-
-            firebaseAuth.signInWithEmailAndPassword(email,password)
-                .addOnSuccessListener {
-                    progressDialog.dismiss()
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finishAffinity()
-                    Toast.makeText(
-                        this,
-                        "Bienvenido(a)",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                .addOnFailureListener{e->
-                    progressDialog.dismiss()
-                    Toast.makeText(
-                        this,
-                        "No se pudo iniciar sesion debido a ${e.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+        if (binding.cbRecordar.isChecked) {
+            val editor: SharedPreferences.Editor = sharedPref.edit()
+            editor.putString("username", email)
+            editor.putString("password", password)
+            editor.apply()
         }
+
+        firebaseAuth.signInWithEmailAndPassword(email,password)
+            .addOnSuccessListener { authResult ->
+                val uid = authResult.user!!.uid
+
+                // AHORA LEEMOS EL TIPO DE USUARIO
+                FirebaseFirestore.getInstance()
+                    .collection("users")
+                    .document(uid)
+                    .get()
+                    .addOnSuccessListener { snapshot ->
+
+                        progressDialog.dismiss()
+
+                        if (snapshot.exists()) {
+                            val tipo = snapshot.getString("tipoUsuario") ?: ""
+
+                            // Guardar rol en SharedPreferences
+                            sharedPref.edit()
+                                .putString("tipoUsuario", tipo)
+                                .apply()
+
+                            // Redirigir según rol
+                            if (tipo == "CLIENTE") {
+                                startActivity(Intent(this, MainClienteActivity::class.java))
+                            } else {
+                                startActivity(Intent(this, MainTecnicoActivity::class.java))
+                            }
+
+                            finishAffinity()
+                            Toast.makeText(this, "Bienvenido(a)", Toast.LENGTH_SHORT).show()
+
+                        } else {
+                            Toast.makeText(this, "No se encontró el usuario en Firestore", Toast.LENGTH_SHORT).show()
+                        }
+
+                    }
+                    .addOnFailureListener { e ->
+                        progressDialog.dismiss()
+                        Toast.makeText(this, "Error obteniendo datos: ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
+            }
+            .addOnFailureListener{e->
+                progressDialog.dismiss()
+                Toast.makeText(this, "No se pudo iniciar sesión: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
     }

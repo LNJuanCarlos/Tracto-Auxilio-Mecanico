@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainTecnicoLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.MainTecnicoActivity">
+
+    <!-- Título dinámico -->
+    <TextView
+        android:id="@+id/TituloRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Pendientes"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:background="@color/green"
+        android:textColor="@android:color/white" />
+
+    <!-- Contenedor de fragments -->
+    <FrameLayout
+        android:id="@+id/FragmentL1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TituloRL"
+        android:layout_above="@id/BottomNV" />
+
+    <!-- RecyclerView para alertas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerAlertas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TituloRL"
+        android:layout_above="@id/BottomNV"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"/>
+
+    <!-- Floating Action Button (oculto para técnicos) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/iconadd"
+        android:contentDescription="Nuevo"
+        app:backgroundTint="@color/green" />
+
+    <!-- Bottom Navigation View -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/BottomNV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/menu_tecnico" />
+
+</RelativeLayout>

@@ -63,4 +63,8 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.ccp)
     implementation(libs.circleImage)
+    implementation(libs.play.services.location)
+    implementation(libs.firebaseFirestore)
+    implementation(libs.google.maps)
+
 }
