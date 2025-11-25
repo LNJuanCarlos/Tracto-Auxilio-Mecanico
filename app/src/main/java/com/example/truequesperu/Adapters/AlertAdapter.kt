@@ -21,6 +21,7 @@ class AlertAdapter(
         val txtTitulo: TextView = itemView.findViewById(R.id.txtTitulo)
         val txtEstado: TextView = itemView.findViewById(R.id.txtEstado)
         val txtFecha: TextView = itemView.findViewById(R.id.txtFecha)
+        val txtTipo: TextView = itemView.findViewById(R.id.txtTipo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlertViewHolder {
@@ -39,6 +40,7 @@ class AlertAdapter(
             .format(Date(alerta.timestamp))
 
         holder.txtEstado.text = alerta.status
+        holder.txtTipo.text = alerta.tipo
 
         val color = when (alerta.status) {
             "Pendiente" -> Color.parseColor("#FFA726")

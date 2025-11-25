@@ -7,10 +7,13 @@ data class Alert(
     val userId: String = "",
     val userName: String = "",
     val userPhone: String = "",
+    var tipo: String = "",
+    val fotos: List<String> = emptyList(),
+    val vehiculo: Vehiculo = Vehiculo(),      // AQUÍ
     val lat: Double = 0.0,
     val lon: Double = 0.0,
     val descripcion: String = "",
-    val status: String = "Pendiente",        // <--- Estado por defecto
+    val status: String = "Pendiente",
     val tecnicoId: String = "",
     val tecnicoName: String = "",
     val timestamp: Long = System.currentTimeMillis()

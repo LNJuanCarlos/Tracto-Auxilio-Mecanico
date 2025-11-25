@@ -1,27 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
     android:padding="24dp">
 
-    <EditText
-        android:id="@+id/txtDescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Describe la emergencia"
-        android:padding="12dp"
-        android:background="@android:drawable/edit_text"
-        android:layout_marginBottom="20dp"/>
+    <!-- BOTÓN SUPERIOR: ENVIAR ALERTA -->
 
-    <Button
+    <!-- BOTÓN IZQUIERDO INFERIOR: MANTENIMIENTO -->
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEnviarAlerta"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:background="@drawable/bg_btn_alerta"
-        android:text="ENVIAR ALERTA"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"/>
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="156dp"
+        android:backgroundTint="@color/rojo"
+        android:gravity="center"
+        android:text="Enviar Alerta"
+        android:textSize="14sp"
+        app:cornerRadius="60dp"
+        app:icon="@drawable/ic_alerta"
+        app:iconGravity="textTop"
+        app:iconPadding="8dp"
+        app:iconSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVentaRepuestos"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/green"
+        android:gravity="center"
+        android:text="Repuestos"
+        android:textSize="14sp"
+        app:cornerRadius="60dp"
+        app:icon="@drawable/ic_repuestos"
+        app:iconGravity="textTop"
+        app:iconPadding="8dp"
+        app:iconSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEnviarAlerta" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnProgramarMantenimiento"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/yelow"
+        android:gravity="center"
+        android:text="Mantenimiento"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:cornerRadius="60dp"
+        app:icon="@drawable/ic_mantenimiento"
+        app:iconGravity="textTop"
+        app:iconPadding="8dp"
+        app:iconSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEnviarAlerta" />
+
+    <!-- BOTÓN DERECHO INFERIOR: REPUESTOS -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.truequesperu.Models.Alert
+import com.example.truequesperu.R
 import com.example.truequesperu.databinding.FragmentEnviarAlertaBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -36,12 +37,53 @@ class FragmentEnviarAlerta : Fragment() {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
 
+        // NUEVOS BOTONES
         binding.btnEnviarAlerta.setOnClickListener {
-            validarYEnviar()
+            abrirFormulario("Alerta General")
+        }
+
+        binding.btnProgramarMantenimiento.setOnClickListener {
+            abrirFormulario("Programación de Mantenimiento")
+        }
+
+        binding.btnVentaRepuestos.setOnClickListener {
+            abrirFormulario("Venta de Repuestos")
         }
 
         return binding.root
     }
+
+    private fun abrirFormulario(tipo: String) {
+        val fragment = FragmentFormularioAlerta()
+        val bundle = Bundle()
+        bundle.putString("tipo", tipo)
+        fragment.arguments = bundle
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.FragmentL1, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun prepararEnvio(tipoSolicitud: String) {
+
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            solicitarPermisos()
+            return
+        }
+
+        if (auth.currentUser == null) {
+            Toast.makeText(requireContext(), "Debe iniciar sesión", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        obtenerUbicacionYCrearSolicitud(tipoSolicitud)
+    }
+
 
     private fun solicitarPermisos() {
         requestPermissions(
@@ -53,52 +95,29 @@ class FragmentEnviarAlerta : Fragment() {
         )
     }
 
-    private fun validarYEnviar() {
-        val descripcion = binding.txtDescripcion.text.toString().trim()
-
-        if (descripcion.isEmpty()) {
-            Toast.makeText(requireContext(), "Ingrese una descripción", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (ActivityCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            solicitarPermisos()
-            return
-        }
-
-        // Si no hay usuario logueado, se cancela la acción
-        if (auth.currentUser == null) {
-            Toast.makeText(requireContext(), "Debe iniciar sesión para enviar alertas", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        obtenerUbicacionYEnviar(descripcion)
-    }
 
     @SuppressLint("MissingPermission")
-    private fun obtenerUbicacionYEnviar(descripcion: String) {
+    private fun obtenerUbicacionYCrearSolicitud(tipoSolicitud: String) {
+
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
             if (location == null) {
                 Toast.makeText(requireContext(), "No se pudo obtener la ubicación", Toast.LENGTH_SHORT).show()
                 return@addOnSuccessListener
             }
 
-            val currentUser = auth.currentUser!!
+            val user = auth.currentUser!!
             val alertaId = UUID.randomUUID().toString()
 
             val alerta = Alert(
                 id = alertaId,
-                userId = currentUser.uid,
-                userName = currentUser.displayName ?: "Cliente",
-                userPhone = currentUser.phoneNumber ?: "",
+                userId = user.uid,
+                userName = user.displayName ?: "Cliente",
+                userPhone = user.phoneNumber ?: "",
                 lat = location.latitude,
                 lon = location.longitude,
-                descripcion = descripcion,
-                status = "Pendiente",  // Estado inicial
+                descripcion = tipoSolicitud,    // ahora se guarda el tipo
+                tipo = tipoSolicitud,          // NUEVO CAMPO
+                status = "Pendiente",
                 timestamp = System.currentTimeMillis()
             )
 
@@ -106,14 +125,31 @@ class FragmentEnviarAlerta : Fragment() {
                 .document(alertaId)
                 .set(alerta)
                 .addOnSuccessListener {
-                    Toast.makeText(requireContext(), "Alerta enviada!", Toast.LENGTH_LONG).show()
-                    binding.txtDescripcion.setText("")
+
+                    // AHORA, después de crear registro, abrirás formulario (próximo paso)
+                    irAFormulario(alerta)
+
+                    Toast.makeText(requireContext(), "Solicitud iniciada", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(requireContext(), "Error al enviar alerta", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Error al enviar", Toast.LENGTH_SHORT).show()
                 }
         }
     }
+
+
+    private fun irAFormulario(alerta: Alert) {
+        val fragment = FragmentFormularioAlerta()
+        val bundle = Bundle()
+        bundle.putSerializable("alerta", alerta)
+        fragment.arguments = bundle
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.FragmentL1, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
