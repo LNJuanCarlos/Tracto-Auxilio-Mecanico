@@ -17,7 +17,6 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -28,21 +27,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TruequesPeru"
         tools:targetApi="31">
+
         <activity
             android:name=".Opciones_Login.EditarPerfil"
             android:exported="false" />
-
         <activity
             android:name=".Activitys.MainClienteActivity"
             android:exported="false" />
-
         <activity
             android:name=".Activitys.MainTecnicoActivity"
             android:exported="false" />
-
-
         <activity
-            android:name=".Opciones_Login.Login_email"
+            android:name=".Activitys.RegistroClienteActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,18 +46,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"
             android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/mi_google_maps_api_key" />
-
-
-
-
     </application>
 
 </manifest>

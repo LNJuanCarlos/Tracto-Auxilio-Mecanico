@@ -12,7 +12,7 @@ constraintlayout = "2.2.1"
 playServicesLocation = "21.2.0"
 firebaseFirestoreV = "25.0.0"
 maps = "18.2.0"
-
+lifecycle = "2.8.7"
 
 googleServicesVersion = "4.4.3"
 retrofitVersion = "2.9.0"
@@ -55,6 +55,8 @@ firebaseStorage = { group = "com.google.firebase", name = "firebase-storage", ve
 play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 firebaseFirestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestoreV" }
 google-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "maps" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -66,5 +66,7 @@ dependencies {
     implementation(libs.play.services.location)
     implementation(libs.firebaseFirestore)
     implementation(libs.google.maps)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.runtime.ktx)
 
 }
