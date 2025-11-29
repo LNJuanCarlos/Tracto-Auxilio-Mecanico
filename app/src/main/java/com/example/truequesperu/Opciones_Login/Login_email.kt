@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.truequesperu.Activitys.MainClienteActivity
 import com.example.truequesperu.Activitys.MainTecnicoActivity
+import com.example.truequesperu.Activitys.SelectTipoUsuarioActivity
 import com.example.truequesperu.databinding.ActivityLoginEmailBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -38,6 +39,10 @@ class Login_email : AppCompatActivity() {
 
             binding.BtnIngresar.setOnClickListener {
                 validarInfo()
+            }
+
+            binding.TxtRegistrarme.setOnClickListener {
+                startActivity(Intent(this, SelectTipoUsuarioActivity::class.java))
             }
 
         }

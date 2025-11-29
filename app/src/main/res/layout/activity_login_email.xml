@@ -54,9 +54,9 @@
             android:hint="Correo electronico">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Et_email"
+                android:id="@+id/EtEmail"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="55dp"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp"/>
 
@@ -72,9 +72,9 @@
             android:hint="Contraseña">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Et_password"
+                android:id="@+id/EtPassword"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="55dp"
                 android:inputType="textPassword"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp"/>
@@ -90,7 +90,7 @@
             android:text="Recordar usuario y contraseña" />
 
         <Button
-            android:id="@+id/Btn_Ingresar"
+            android:id="@+id/BtnIngresar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -99,9 +99,34 @@
             android:background="@drawable/rounded_button"
             android:text="@string/iniciar_sesion" />
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:gravity="center">
+
+            <TextView
+                android:text="@string/Txt_no_cuenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/TxtRegistrarme"
+                android:text="@string/Txt_registrarme"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
 
 
     </LinearLayout>
+
+
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
